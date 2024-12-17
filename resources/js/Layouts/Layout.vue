@@ -1,6 +1,5 @@
 <script setup>
-import { ref } from 'vue';
-
+import { ref } from "vue";
 
 // Definir el estado del menú
 const showMenu = ref(false);
@@ -12,12 +11,18 @@ const toggleMenu = () => {
 </script>
 <template>
 
-    <div class="font-sans">
+    <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet">
+    </Head>
+    <div class="font-sans m-0 p-0">
         <header class="bg-white dark:bg-gray-900">
             <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex-1 md:flex md:items-center md:gap-12">
-                        <Link class="block text-teal-600 dark:text-teal-300" href="/">
+                        <Link class="block text-teal-600 dark:text-teal-300" :href="route('home')">
                         <span class="sr-only">Home</span>
                         <svg class="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -31,9 +36,10 @@ const toggleMenu = () => {
                         <nav aria-label="Global" class="hidden md:block">
                             <ul class="flex items-center gap-6 text-sm">
                                 <li>
-                                    <Link href="/about"
+                                    <Link :href="route('about')"
                                         class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75">
-                                    Acerca</Link>
+                                    Acerca
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
@@ -50,6 +56,12 @@ const toggleMenu = () => {
                                 class="absolute end-0 z-10 mt-0.5 w-56 rounded-md border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-900"
                                 role="menu">
                                 <div class="p-2">
+                                    <a href="#"
+                                        class="block rounded-lg px-4 py-2 text-sm text-gray-500 cursor-not-allowed bg-gray-200 dark:bg-slate-900 dark:text-gray-500"
+                                        role="menuitem" aria-disabled="true">
+                                        {{ $page.props.auth.user }}
+                                    </a>
+
                                     <a href="#"
                                         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
                                         role="menuitem">
