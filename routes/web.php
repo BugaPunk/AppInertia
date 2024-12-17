@@ -8,7 +8,6 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
-
-
 Route::inertia('/about', 'About', ['user'=>'Ronald'])->name('about');
 
+Route::inertia('/register', 'Auth/Register') -> name('register');

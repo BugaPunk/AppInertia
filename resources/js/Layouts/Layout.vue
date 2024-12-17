@@ -41,6 +41,12 @@ const toggleMenu = () => {
                                     Acerca
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link :href="route('register')"
+                                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75">
+                                    Registrar
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
 
@@ -112,7 +118,7 @@ const toggleMenu = () => {
             </div>
         </header>
 
-        <main class="p-4">
+        <main>
             <slot />
         </main>
     </div>
